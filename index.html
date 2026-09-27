@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Art by Zohran | Original Art & Commissions</title>
+
+    <meta name="description"
+          content="Art by Zohran — original paintings, sketches, commissions and art lessons from Dubai.">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f7f3ed;
+            color: #211d19;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(247, 243, 237, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #ddd4c9;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.55;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 85vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            padding: 80px 8%;
+            gap: 60px;
+        }
+
+        .hero-text small {
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 8vw, 105px);
+            line-height: 0.95;
+            margin: 20px 0;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 550px;
+            color: #625a52;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border: 1px solid #211d19;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #211d19;
+            color: white;
+        }
+
+        .btn-dark {
+            background: #211d19;
+            color: white;
+        }
+
+        .btn-dark:hover {
+            background: transparent;
+            color: #211d19;
+        }
+
+        .hero-art {
+            min-height: 500px;
+            background:
+                radial-gradient(circle at 25% 30%, #d4a75c, transparent 25%),
+                radial-gradient(circle at 70% 60%, #80664b, transparent 30%),
+                radial-gradient(circle at 40% 80%, #1d1a17, transparent 25%),
+                linear-gradient(135deg, #d8c8b5, #5c5146);
+            border-radius: 3px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.15);
+        }
+
+        .hero-art::after {
+            content: "ZOHRAN";
+            position: absolute;
+            bottom: 25px;
+            right: 25px;
+            color: rgba(255,255,255,0.8);
+            font-family: Arial, sans-serif;
+            letter-spacing: 5px;
+            font-size: 12px;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading small {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-family: Arial, sans-serif;
+            font-size: 11px;
+        }
+
+        .section-heading h2 {
+            font-size: 50px;
+            margin-top: 10px;
+        }
+
+        /* ARTWORK */
+
+        .art-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .art-card {
+            background: white;
+            border: 1px solid #e0d8cf;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .art-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .art-image {
+            height: 330px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .gold {
+            background:
+                radial-gradient(circle at 35% 35%, #e5c37b, transparent 18%),
+                radial-gradient(circle at 70% 65%, #171411, transparent 35%),
+                linear-gradient(135deg, #27211b, #ad8440);
+        }
+
+        .portrait {
+            background:
+                radial-gradient(ellipse at center, #c9a889, transparent 30%),
+                linear-gradient(135deg, #3b3029, #c6ad95);
+        }
+
+        .valley {
+            background:
+                linear-gradient(155deg, #6e7560 20%, #c8b99b 20% 40%, #55604b 40% 60%, #d9c7a9 60%);
+        }
+
+        .texture {
+            background:
+                radial-gradient(circle at 20% 30%, #b18d64, transparent 25%),
+                radial-gradient(circle at 70% 60%, #40362e, transparent 30%),
+                linear-gradient(135deg, #8f795d, #d0b996);
+        }
+
+        .mini {
+            background:
+                linear-gradient(45deg, #312922 25%, #c49d63 25% 50%, #6b5542 50% 75%, #d4b67f 75%);
+        }
+
+        .custom {
+            background:
+                linear-gradient(135deg, #201b18, #8e7257, #d4b06e, #30271f);
+        }
+
+        .art-info {
+            padding: 23px;
+        }
+
+        .art-info h3 {
+            font-size: 22px;
+            margin-bottom: 6px;
+        }
+
+        .price {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        .description {
+            color: #766d64;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        .enquire {
+            display: inline-block;
+            margin-top: 18px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            border-bottom: 1px solid #211d19;
+            padding-bottom: 3px;
+        }
+
+        /* PROMO */
+
+        .promo {
+            background: #211d19;
+            color: white;
+            text-align: center;
+        }
+
+        .promo h2 {
+            font-size: 55px;
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.1;
+        }
+
+        .promo p {
+            max-width: 650px;
+            margin: 25px auto;
+            color: #d7cec4;
+            font-family: Arial, sans-serif;
+        }
+
+        /* WHY */
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .why-card {
+            padding: 30px;
+            border-top: 1px solid #211d19;
+        }
+
+        .why-card span {
+            font-size: 30px;
+        }
+
+        .why-card h3 {
+            margin: 15px 0 8px;
+            font-size: 20px;
+        }
+
+        .why-card p {
+            color: #6e665e;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        /* TESTIMONIALS */
+
+        .testimonials {
+            background: #e9e0d6;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .testimonial {
+            background: #f8f5f0;
+            padding: 35px;
+        }
+
+        .stars {
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-size: 17px;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .testimonial strong {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        /* LESSONS */
+
+        .lesson {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .lesson h2 {
+            font-size: 55px;
+            line-height: 1.05;
+            margin: 15px 0;
+        }
+
+        .lesson p {
+            color: #655d56;
+            font-size: 17px;
+            margin-bottom: 25px;
+        }
+
+        .lesson-box {
+            background: #211d19;
+            color: white;
+            padding: 55px;
+        }
+
+        .lesson-box h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .lesson-box li {
+            list-style: none;
+            padding: 10px 0;
+            border-bottom: 1px solid #514a43;
+            font-family: Arial, sans-serif;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 65px;
+            margin: 15px 0;
+        }
+
+        .contact p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #665e56;
+            font-family: Arial, sans-serif;
+        }
+
+        .socials {
+            margin-top: 35px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        .socials a {
+            border-bottom: 1px solid #211d19;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 35px 8%;
+            background: #211d19;
+            color: #cfc6bc;
+            display: flex;
+            justify-content: space-between;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 60px;
+            }
+
+            .hero-art {
+                min-height: 380px;
+            }
+
+            .art-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .why-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lesson {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .hero {
+                padding: 60px 6%;
+            }
+
+            .hero h1 {
+                font-size: 65px;
+            }
+
+            .section-heading h2,
+            .promo h2,
+            .lesson h2,
+            .contact h2 {
+                font-size: 40px;
+            }
+
+            .art-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">Art by Zohran</div>
+
+    <div class="nav-links">
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#lessons">Lessons</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <small>Dubai · Studio · Commissions</small>
+
+        <h1>We make<br>art.</h1>
+
+        <p>
+            Hand-crafted paintings, sketches and creative experiments —
+            by Zohran. Originals, commissions and lessons for anyone who
+            wants to learn.
+        </p>
+
+        <div class="buttons">
+
+            <a class="btn btn-dark"
+               href="https://wa.me/971564233680"
+               target="_blank">
+                Order a Piece →
+            </a>
+
+            <a class="btn" href="#gallery">
+                View Gallery
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-art"></div>
+
+</section>
+
+
+<!-- GALLERY -->
+
+<section id="gallery">
+
+    <div class="section-heading">
+        <small>Selected Pieces</small>
+        <h2>Featured Work</h2>
+    </div>
+
+
+    <div class="art-grid">
+
+        <div class="art-card">
+            <div class="art-image gold">
+                GOLD STUDY
+            </div>
+
+            <div class="art-info">
+                <h3>Gold Study No. 4</h3>
+                <div class="price">AED 850</div>
+                <div class="description">
+                    Acrylic & gold leaf on canvas
+                </div>
+
+                <a class="enquire"
+                   href="https://wa.me/971564233680?text=Hi%20Zohran,%20I'm%20interested%20in%20Gold%20Study%20No.%204"
+                   target="_blank">
+                    Enquire →
+                </a>
+            </div>
+        </div>
+
+
+        <div class="art-card">
+            <div class="art-image portrait">
+                PORTRAIT
+            </div>
+
+            <div class="art-info">
+                <h3>Portrait Commission</h3>
+                <div class="price">From AED 400</div>
+                <div class="description">
+                    Graphite on cotton paper
+                </div>
+
+                <a class="enquire"
+                   href="https://wa.me/971564233680?text=Hi%20Zohran,%20I'd%20like%20to%20ask%20about%20a%20portrait%20commission."
+                   target="_blank">
+                    Enquire →
+                </a>
+            </div>
+        </div>
+
+
+        <div class="art-card">
+            <div class="art-image valley">
+                QUIET VALLEY
+            </div>
+
+            <div class="art-info">
+                <h3>Quiet Valley</h3>
+                <div class="price">AED 620</div>
+                <div class="description">
+                    Ink & watercolour study
+                </div>
+
+                <a class="enquire"
+                   href="https://wa.me/971564233680"
+                   target="_blank">
+                    Enquire →
+                </a>
+            </div>
+        </div>
+
+
+        <div class="art-card">
+            <div class="art-image texture">
+                STUDIO ORIGINAL
+            </div>
+
+            <div class="art-info">
+                <h3>Studio Original</h3>
+                <div class="price">AED 1,200</div>
+                <div class="description">
+                    Large textured canvas
+                </div>
+
+                <a class="enquire"
+                   href="https://wa.me/971564233680"
+                   target="_blank">
+                    Enquire →
+                </a>
+            </div>
+        </div>
+
+
+        <div class="art-card">
+            <div class="art-image mini">
+                MINI ABSTRACTS
+            </div>
+
+            <div class="art-info">
+                <h3>Mini Abstracts</h3>
+                <div class="price">AED 220</div>
+                <div class="description">
+                    Set of three · 20 × 20 cm
+                </div>
+
+                <a class="enquire"
+                   href="https://wa.me/971564233680"
+                   target="_blank">
+                    Enquire →
+                </a>
+            </div>
+        </div>
+
+
+        <div class="art-card">
+            <div class="art-image custom">
+                CUSTOM ARTWORK
+            </div>
+
+            <div class="art-info">
+                <h3>Custom Artwork</h3>
+                <div class="price">On request</div>
+                <div class="description">
+                    Your idea, painted by hand
+                </div>
+
+                <a class="enquire"
+                   href="https://wa.me/971564233680"
+                   target="_blank">
+                    Enquire →
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- COMMISSIONS -->
+
+<section class="promo">
+
+    <h2>
+        Your idea.<br>
+        Painted by hand.
+    </h2>
+
+    <p>
+        Have something special in mind?
+        Zohran creates custom artwork for gifts,
+        portraits, homes and personal collections.
+    </p>
+
+    <a class="btn"
+       href="https://wa.me/971564233680?text=Hi%20Zohran,%20I'd%20like%20to%20discuss%20a%20custom%20artwork."
+       target="_blank"
+       style="color:white;border-color:white;">
+        Start a Commission →
+    </a>
+
+</section>
+
+
+<!-- WHY COLLECT -->
+
+<section id="about">
+
+    <div class="section-heading">
+
+        <small>The Promise</small>
+
+        <h2>Why Collect From Me</h2>
+
+    </div>
+
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <span>🎨</span>
+            <h3>Hand-made</h3>
+            <p>
+                Every piece is painted by hand, never printed.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <span>✦</span>
+            <h3>Original Work</h3>
+            <p>
+                One-of-a-kind artwork, signed by the artist.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <span>🖌</span>
+            <h3>Commissions</h3>
+            <p>
+                Your idea transformed into a personal painting.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <span>📦</span>
+            <h3>Careful Packing</h3>
+            <p>
+                Artwork carefully wrapped and prepared for delivery.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LESSONS -->
+
+<section id="lessons">
+
+    <div class="lesson">
+
+        <div>
+
+            <small>Learn</small>
+
+            <h2>
+                Want to<br>
+                learn art?
+            </h2>
+
+            <p>
+                Follow along for tutorials, behind-the-scenes
+                process and daily inspiration — or book
+                a one-to-one lesson.
+            </p>
+
+            <a class="btn btn-dark"
+               href="https://wa.me/971564233680?text=Hi%20Zohran,%20I'd%20like%20to%20ask%20about%20art%20lessons."
+               target="_blank">
+                Book a Lesson →
+            </a>
+
+        </div>
+
+
+        <div class="lesson-box">
+
+            <h3>Learn step by step.</h3>
+
+            <ul>
+
+                <li>✓ Drawing fundamentals</li>
+                <li>✓ Sketching techniques</li>
+                <li>✓ Painting basics</li>
+                <li>✓ Creative experiments</li>
+                <li>✓ Personal guidance</li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials">
+
+    <div class="section-heading">
+
+        <small>Testimonials</small>
+
+        <h2>What Collectors Say</h2>
+
+    </div>
+
+
+    <div class="testimonial-grid">
+
+        <div class="testimonial">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                “Commissioned a portrait as a gift —
+                the likeness was uncanny and it arrived
+                beautifully packed.”
+            </p>
+
+            <strong>SARA M. · DUBAI</strong>
+
+        </div>
+
+
+        <div class="testimonial">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                “The texture in person is incredible.
+                Photos really don't do the gold pieces justice.”
+            </p>
+
+            <strong>BILAL K. · COLLECTOR</strong>
+
+        </div>
+
+
+        <div class="testimonial">
+
+            <div class="stars">★★★★★</div>
+
+            <p>
+                “I started sketching again after following
+                the tutorials. Genuinely easy to keep up with.”
+            </p>
+
+            <strong>AYESHA R. · STUDENT</strong>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+    <small>Get in touch</small>
+
+    <h2>Every stroke<br>is a story.</h2>
+
+    <p>
+        Commissions, prints, collaborations or lessons —
+        the fastest way to reach Zohran is WhatsApp.
+    </p>
+
+
+    <a class="btn btn-dark"
+       href="https://wa.me/971564233680"
+       target="_blank">
+        Chat on WhatsApp
+    </a>
+
+
+    <div class="socials">
+
+        <a href="https://www.instagram.com/artbyzohran/"
+           target="_blank">
+            Instagram
+        </a>
+
+        <a href="https://www.tiktok.com/@artbyzohran"
+           target="_blank">
+            TikTok
+        </a>
+
+        <a href="https://www.threads.net/@zzohranzeb"
+           target="_blank">
+            Threads
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div>
+        © 2026 Art by Zohran
+    </div>
+
+    <div>
+        Original paintings · Sketches · Art lessons
+    </div>
+
+</footer>
+
+
+</body>
+</html>
